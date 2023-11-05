@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Tyuiu.PoznyakIA.Sprint4.Task1.V30.Lib;
+using Tyuiu.PoznyakIA.Sprint4.Task2.V13.Lib;
 
-namespace Tyuiu.PoznyakIA.Sprint4.Task1.V30
+namespace Tyuiu.PoznyakIA.Sprint4.Task2.V13
 {
     class Program
     {
@@ -31,6 +31,7 @@ namespace Tyuiu.PoznyakIA.Sprint4.Task1.V30
             Console.WriteLine("***************************************************************************");
 
             DataService ds = new DataService();
+            Random rnd = new Random();
 
             int len;
             Console.Write("Введите количество элементов массива: ");
@@ -38,10 +39,10 @@ namespace Tyuiu.PoznyakIA.Sprint4.Task1.V30
 
             int[] numsArray = new int[len];
 
+            
             for (int i = 0; i <= len - 1; i++)
 {
-                Console.Write("Введите значение " + i + "элемента массива: ");
-                numsArray[i] = Convert.ToInt32(Console.ReadLine());
+                numsArray[i] = rnd.Next(2, 9);
             }
             Console.WriteLine();
             Console.WriteLine("Массив: ");

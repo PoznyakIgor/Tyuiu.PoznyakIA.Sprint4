@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Tyuiu.PoznyakIA.Sprint4.Task2.V13.Lib;
-
-namespace Tyuiu.PoznyakIA.Sprint4.Task2.V13
+using Tyuiu.PoznyakIA.Sprint4.Task3.V13.Lib;
+namespace Tyuiu.PoznyakIA.Sprint4.Task3.V13
 {
     class Program
     {
@@ -17,7 +16,7 @@ namespace Tyuiu.PoznyakIA.Sprint4.Task2.V13
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* Спринт #3                                                               *");
             Console.WriteLine("* Тема: Обработка структурных данных                                      *");
-            Console.WriteLine("* Задание #2                                                              *");
+            Console.WriteLine("* Задание #3                                                              *");
             Console.WriteLine("* Вариант #13                                                             *");
             Console.WriteLine("* Выполнил: Позняк И.А. | ИСТНб-23-1                                      *");
             Console.WriteLine("***************************************************************************");
@@ -30,34 +29,30 @@ namespace Tyuiu.PoznyakIA.Sprint4.Task2.V13
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
             Console.WriteLine("***************************************************************************");
 
+            int[,] mtrx = new int[5, 5] { { 6, 4, 2, 2, 1 },
+                                          { 3, 6, 5, 4, 1 },
+                                          { 5, 2, 3, 1, 6 },
+                                          { 8, 8, 4, 5, 3 },
+                                          { 7, 4, 5, 1, 6 }, };
+            int rows = mtrx.GetUpperBound(0) + 1;
+            int colums = mtrx.Length / rows;
+
             DataService ds = new DataService();
-            Random rnd = new Random();
 
-            int len;
-            Console.Write("Введите количество элементов массива: ");
-            len = Convert.ToInt32(Console.ReadLine());
-
-            int[] numsArray = new int[len];
-
-            
-            for (int i = 0; i <= len - 1; i++)
-{
-                numsArray[i] = rnd.Next(2, 9);
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < colums; j++)
+                {
+                    Console.Write($"{mtrx[i, j]} \t");
+                }
+                Console.WriteLine();
             }
-            Console.WriteLine();
-            Console.WriteLine("Массив: ");
-            for (int i = 0; i <= len - 1; i++)
-{
-                Console.Write(numsArray[i] + "\t");
-            }
-            Console.WriteLine();
 
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* Результат:                                                              *");
             Console.WriteLine("***************************************************************************");
-            Console.WriteLine("Cумма четных чисел: " + ds.Calculate(numsArray));
-
-            Console.ReadLine();
+            Console.WriteLine("Сумма четвертого столбца = " + ds.Calculate(mtrx));
+            Console.ReadKey();
         }
     }
 }
